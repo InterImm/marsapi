@@ -8,6 +8,7 @@ from marsapi.api.time.business import earth_utc_to_mars_aat
 from marsapi.api.time.model import timekeeping_mars_time
 from marsapi.api.time.parsers import timekeeping_arguments
 from marsapi.api.restplus import api
+from marsapi.api.time.functions.mars import CoordinatedMarsTime
 
 log = logging.getLogger(__name__)
 
@@ -22,6 +23,9 @@ class GetDateTimeNow(Resource):
         """
         Get time on Mars
         """
+
+        mars_now = CoordinatedMarsTime.now()
+
         dt_now = datetime.datetime.utcnow().isoformat()
         args = timekeeping_arguments.parse_args(request)
         earth_utc_time = args.get('earth_utc_time', dt_now)
@@ -31,7 +35,14 @@ class GetDateTimeNow(Resource):
 
         res = {
             "earth_utc_time": dt_now,
-            "mars_timezone": mars_timezone
+            "mars_timezone": mars_timezone,
+            "martian_standard": {
+                'day': mars_now.days,
+                'hour': mars_now.hours,
+                'minute': mars_now.minutes,
+                'second': mars_now.seconds,
+                'millisecond': mars_now.milliseconds
+            }
         }
 
         return res
