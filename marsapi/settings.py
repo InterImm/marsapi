@@ -1,5 +1,5 @@
 # Flask settings
-FLASK_SERVER_NAME = 'localhost:8910'
+FLASK_SERVER_NAME = '0.0.0.0'
 ## Turn DEBUG Mode on to test API
 FLASK_DEBUG = True
 
