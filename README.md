@@ -1,7 +1,17 @@
 # marsapi
+
 an api for martian time, location, etc
 
-This is an API built with Python to server queriable Mars.
+This is an API built with Python to server life on Mars.
+
+
+[docker container](https://hub.docker.com/r/interimm/marsapi)
+
+```
+docker pull interimm/marsapi
+```
+
+
 
 ## Reference
 
