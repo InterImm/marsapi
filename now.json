@@ -2,7 +2,7 @@
     "version": 2,
     "name": "marsapi",
     "builds": [
-        { "src": "marsapi/*.py", "use": "@liudonghua123/now-flask" , "config": { "maxLambdaSize": "30mb" } }
+        { "src": "**/*.*", "use": "@liudonghua123/now-flask" , "config": { "maxLambdaSize": "30mb" } }
     ],
     "routes": [
         { "src": "/api", "dest": "/marsapi/app.py"}
